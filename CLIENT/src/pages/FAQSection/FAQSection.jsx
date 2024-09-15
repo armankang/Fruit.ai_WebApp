@@ -26,7 +26,7 @@ const FAQSection = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/faqs")
+    axios.get("http://127.0.0.1:5001/faqs")
       .then((response) => setFaqData(response.data))
       .catch((error) => console.error("Error fetching FAQs:", error));
   }, []);
@@ -44,7 +44,7 @@ const FAQSection = () => {
     setError("");
 
     if (editingIndex === null) {
-      axios.post("http://127.0.0.1:5000/faqs", newFaq)
+      axios.post("http://127.0.0.1:5001/faqs", newFaq)
         .then((response) => {
           setFaqData([...faqData, response.data]);
           setNewFaq({ imageSrc: "", fruitName: "", question: "", answer: "" });
@@ -52,7 +52,7 @@ const FAQSection = () => {
         .catch((error) => console.error("Error adding FAQ:", error));
     } else {
       const id = faqData[editingIndex]._id;
-      axios.put(`http://127.0.0.1:5000/faqs/${id}`, newFaq)
+      axios.put(`http://127.0.0.1:5001/faqs/${id}`, newFaq)
         .then((response) => {
           const updatedFaqs = faqData.map((item, index) =>
             index === editingIndex ? response.data : item
@@ -72,7 +72,7 @@ const FAQSection = () => {
 
   const handleDeleteFaq = (index) => {
     const id = faqData[index]._id;
-    axios.delete(`http://127.0.0.1:5000/faqs/${id}`)
+    axios.delete(`http://127.0.0.1:5001/faqs/${id}`)
       .then(() => {
         const updatedFaqs = faqData.filter((_, i) => i !== index);
         setFaqData(updatedFaqs);

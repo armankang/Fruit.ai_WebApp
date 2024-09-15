@@ -12,7 +12,7 @@ function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://127.0.0.1:5000/api/login", { email, password });
+      const response = await axios.post("http://127.0.0.1:5001/api/login", { email, password });
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         navigate("/home");
