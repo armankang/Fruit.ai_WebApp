@@ -14,7 +14,7 @@ const port = process.env.PORT || 5001;
 //   origin: 'http://localhost:3000', // Allow frontend access
 // }));
 app.use(cors({
-  origin: 'http://localhost:3000', // Adjust this to your frontend's address
+  origin: 'https://fruit-ai-web-app-8wjh.vercel.app/', // Adjust this to your frontend's address
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
