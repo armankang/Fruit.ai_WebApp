@@ -16,7 +16,8 @@ function RegisterForm() {
       return;
     }
     try {
-      const response = await axios.post("http://127.0.0.1:5001/api/register", { email, password });
+      // http://127.0.0.1:5001/
+      const response = await axios.post("https://fruit-ai-web-app-u69p.vercel.app/api/register", { email, password });
       console.log(response.data);
       navigate("/LoginPage");
     } catch (error) {
