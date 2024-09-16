@@ -12,7 +12,7 @@ function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://fruit-ai-web-app-u69p.vercel.app/login", { email, password });
+      const response = await axios.post("https://fruit-ai-web-app.vercel.app/login", { email, password });
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         navigate("/home");
